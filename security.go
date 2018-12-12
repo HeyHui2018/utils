@@ -25,3 +25,15 @@ func Base64Decode(src string) (string, err) {
 	code, err := base64.StdEncoding.DecodeString(src)
 	return string(code), err
 }
+
+func APHash(key string) uint32 {
+	var hash uint32
+	for i, char := range key {
+		if i&1 == 0 {
+			hash ^= ((hash << 7) ^ uint32(char) ^ (hash >> 3))
+		} else {
+			hash ^= (^((hash << 11) ^ uint32(char) ^ (hash >> 5)))
+		}
+	}
+	return (hash & 0x7FFFFFFF)
+}
