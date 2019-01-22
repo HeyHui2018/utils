@@ -29,14 +29,13 @@ func GetRedisConnFromPool(maxidle, timeout int, ip, port, password string) (*red
 	key := fmt.Sprintf("%s-%s", ip, port)
 	if v, ok := pool[key]; ok {
 		return v, nil
-	} else {
-		p, err := NewRedisPool(maxidle, timeout, ip, port, password)
-		if err != nil {
-			return nil, err
-		}
-		pool[key] = p
-		return p, nil
 	}
+	p, err := NewRedisPool(maxidle, timeout, ip, port, password)
+	if err != nil {
+		return nil, err
+	}
+	pool[key] = p
+	return p, nil
 }
 
 func NewRedisPool(maxIdle, timeout int, ip, port, password string) (*redis.Pool, error) {
@@ -63,4 +62,5 @@ func NewRedisPool(maxIdle, timeout int, ip, port, password string) (*redis.Pool,
 			return err
 		},
 	}
+	return pool, nil
 }
