@@ -25,8 +25,8 @@ func GetClient(timeOut int64) *http.Client {
 			},
 			ResponseHeaderTimeout: time.Second * time.Duration(timeOut),
 			DisableKeepAlives:     true,
-			//DisableKeepAlives为false时，在新建connection之前，会去缓存map中寻找同类型连接，若没有则新建并存入缓存
-			//map供重复使用，key为请求方法和请求host，此方法适用于短时间大量访问相同host的情况；当短时间大量访问不同的host时，需将DisableKeepAlives设为true，这样底层会在收到请求后直接关闭连接
+			//DisableKeepAlives为false时，在新建connection之前，会去缓存map中寻找同类型连接，若没有则新建并存入
+			// 缓存map供重复使用，key为请求方法和请求host，此方法适用于短时间大量访问相同host的情况；当短时间大量访问不同的host时，需将DisableKeepAlives设为true，这样底层会在收到请求后直接关闭连接
 			MaxIdleConnsPerHost: 0,
 		},
 	}

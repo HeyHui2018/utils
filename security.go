@@ -18,7 +18,7 @@ func Base64Encode(src []byte) string {
 }
 
 /*
-	str := utils.Base64Encode([]byte("Hello, playground"))
+	str := utils.Base64Encode([]byte("Hello, world"))
  */
 
 func Base64Decode(src string) (string, err) {
