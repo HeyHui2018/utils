@@ -21,7 +21,7 @@ func Base64Encode(src []byte) string {
 	str := utils.Base64Encode([]byte("Hello, world"))
  */
 
-func Base64Decode(src string) (string, err) {
+func Base64Decode(src string) (string, error) {
 	code, err := base64.StdEncoding.DecodeString(src)
 	return string(code), err
 }

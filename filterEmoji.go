@@ -9,7 +9,7 @@ import (
 func FilterEmoji(originalStr, replaceStr string) string {
 	var newRune []rune
 	for _, value := range originalStr {
-		r, size := utf8.DecodeRuneInString(string(value))
+		_, size := utf8.DecodeRuneInString(string(value))
 		if size > 3 {
 			newRune = append(newRune, []rune(replaceStr)...)
 		} else {
