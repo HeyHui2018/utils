@@ -44,3 +44,16 @@ func init() {
 /*
 log.Logger().SetPrefix(fmt.Sprintf("processId=%v  ", processId))
 */
+
+
+//gin亦可在拦截器中添加processId
+/*
+func GenerateProcessId() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		processId := time.Now().Format("20060102150405") + utils.GetRandString()
+		c.Set("processId", processId)
+		c.Next()
+	}
+}
+后续可直接从request中拿：processId := c.GetString("processId")
+ */
