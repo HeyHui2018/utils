@@ -2,9 +2,9 @@ package utils
 
 import (
 	"fmt"
+	"github.com/garyburd/redigo/redis"
 	"sync"
 	"time"
-	"github.com/garyburd/redigo/redis"
 )
 
 func GetRedisConnWithoutPool(ip, port, password string) (redis.Conn, error) {
@@ -63,4 +63,10 @@ func NewRedisPool(maxIdle, timeout int, ip, port, password string) (*redis.Pool,
 		},
 	}
 	return pool, nil
+}
+
+// 设置带过期时间的锁
+func LockWithTimeout(conn redis.Conn, lockKey string, timeout int) error {
+	_, err := conn.Do("SET", lockKey, "1", "EX", timeout, "NX")
+	return err
 }

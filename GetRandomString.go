@@ -45,8 +45,7 @@ func init() {
 log.Logger().SetPrefix(fmt.Sprintf("processId=%v  ", processId))
 */
 
-
-//gin亦可在拦截器中添加processId
+// gin亦可在拦截器中添加processId
 /*
 func GenerateProcessId() gin.HandlerFunc {
 	return func(c *gin.Context) {
@@ -56,4 +55,4 @@ func GenerateProcessId() gin.HandlerFunc {
 	}
 }
 后续可直接从request中拿：processId := c.GetString("processId")
- */
+*/
