@@ -1,6 +1,6 @@
 package utils
 
-func CheckParamsLength(params map[string]string) (bool, string) {
+func StrLengthCheck(params map[string]string) (bool, string) {
 	for k, v := range params {
 		if len(v) == 0 {
 			return false, k
@@ -15,7 +15,7 @@ func CheckParamsLength(params map[string]string) (bool, string) {
 		"timestamp": timestamp,
 		"token":     token,
 	}
-	if ok, _ := utils.CheckParamsLength(toCheck); !ok {
+	if ok, _ := utils.StrLengthCheck(toCheck); !ok {
 		return
 	}
 */
