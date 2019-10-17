@@ -17,10 +17,6 @@ func Base64Encode(src []byte) string {
 	return base64.StdEncoding.EncodeToString(src)
 }
 
-/*
-	str := utils.Base64Encode([]byte("Hello, world"))
- */
-
 func Base64Decode(src string) (string, error) {
 	code, err := base64.StdEncoding.DecodeString(src)
 	return string(code), err

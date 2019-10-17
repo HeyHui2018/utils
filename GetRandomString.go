@@ -40,11 +40,6 @@ func init() {
 后续可直接从request中拿：processId := this.GetString("processId")
 */
 
-// github.com/ngaut/log通过SetPrefix添加processId,不用每行log都添加processId字段,并发会被覆盖
-/*
-log.Logger().SetPrefix(fmt.Sprintf("processId=%v  ", processId))
-*/
-
 // gin亦可在拦截器中添加processId
 /*
 func GenerateProcessId() gin.HandlerFunc {

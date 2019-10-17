@@ -4,9 +4,7 @@ import (
 	"unicode/utf8"
 )
 
-//😭123😭asd😄Win惠nie
-
-func FilterEmoji(originalStr, replaceStr string) string {
+func ReplaceEmoji(originalStr, replaceStr string) string {
 	var newRune []rune
 	for _, value := range originalStr {
 		_, size := utf8.DecodeRuneInString(string(value))
@@ -20,5 +18,7 @@ func FilterEmoji(originalStr, replaceStr string) string {
 }
 
 /*
-	new := FilterEmoji("😭123😭asd😄Win惠nie", "你好")
- */
+	if you want to remove emoji,just set replaceStr = "".
+	for example:
+	new := FilterEmoji("😭123😭asd😄Winnie", "")
+*/
