@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2021 GRAVITI. All rights reserved.
- * Contents cannot be copied or distributed without the permission of GRAVITI.
- */
-
 package utils
 
 import (
